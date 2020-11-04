@@ -1,6 +1,10 @@
 #include <Windows.h>
 
 bool running = true;
+void* buffer_memory;
+int buffer_width;
+int buffer_height;
+BITMAPINFO buffer_bitmap_info;
 
 LRESULT CALLBACK window_callback(
 	HWND   hwnd,
@@ -14,6 +18,20 @@ LRESULT CALLBACK window_callback(
 		case WM_CLOSE:
 		case WM_DESTROY: {
 			running = false;
+		} break;
+		case WM_SIZE: {
+			RECT rect;
+			GetClientRect(hwnd, &rect);
+			int width = rect.right - rect.left;
+			int height = rect.top - rect.bottom;
+
+			int buffer_size = width * height * sizeof(unsigned int);
+
+			if (buffer_memory) 
+			{
+				VirtualFree(buffer_memory, 0, MEM_RELEASE);
+			}
+			buffer_memory = VirtualAlloc(0, buffer_size, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
 		} break;
 
 		default: {
@@ -47,6 +65,7 @@ int WinMain(
 				1280, 720,
 				0, 0, 
 				hInstance, 0);
+	HDC hdc = GetDC(window);
 
 	while (running)
 	{
@@ -56,8 +75,11 @@ int WinMain(
 			TranslateMessage(&message);
 			DispatchMessage(&message);
 		}
+
 		//Simulate
 
+
 		//render
+		StretchDIBits(hdc, 0, 0, buffer_width, buffer_height, 0, 0, buffer_width, buffer_height, buffer_memory)
 	}
 }

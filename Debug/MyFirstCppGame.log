@@ -1,7 +1,3 @@
 ﻿  win32_platform.cpp
-C:\Users\Thomas\source\repos\MyFirstCppGame\MyFirstCppGame\win32_platform.cpp(11,5): warning C4007: 'WinMain': must be '__stdcall'
-C:\Users\Thomas\source\repos\MyFirstCppGame\MyFirstCppGame\win32_platform.cpp(20,50): error C2440: '=': cannot convert from 'const char [18]' to 'LPCWSTR'
-C:\Users\Thomas\source\repos\MyFirstCppGame\MyFirstCppGame\win32_platform.cpp(20,31): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-C:\Users\Thomas\source\repos\MyFirstCppGame\MyFirstCppGame\win32_platform.cpp(27,1): error C2664: 'HWND CreateWindowExW(DWORD,LPCWSTR,LPCWSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)': cannot convert argument 3 from 'const char [14]' to 'LPCWSTR'
-C:\Users\Thomas\source\repos\MyFirstCppGame\MyFirstCppGame\win32_platform.cpp(27,1): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\winuser.h(4436,1): message : see declaration of 'CreateWindowExW'
+C:\Users\hawki\Documents\Godot Pojects\MyFirstCPPGame\win32_platform.cpp(48,19): warning C4007: 'WinMain': must be '__stdcall'
+  MyFirstCppGame.vcxproj -> C:\Users\hawki\Documents\Godot Pojects\MyFirstCPPGame\Debug\MyFirstCppGame.exe
