@@ -86,7 +86,7 @@ int WinMain(
 		}
 
 		//Simulate
-
+		render_background();
 
 		//render
 		StretchDIBits(hdc, 0, 0, render_state.width, render_state.height, 0, 0, render_state.width, render_state.height, render_state.memory, &render_state.bitmap_info, DIB_RGB_COLORS, SRCCOPY);
